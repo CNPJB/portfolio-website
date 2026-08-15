@@ -1,0 +1,515 @@
+@import "tailwindcss";
+
+@theme {
+    --font-sans: "Inter", "Segoe UI", sans-serif;
+    
+    /* Map Semantic Variables to Tailwind Utilities */
+    --color-primary: var(--color-primary);
+    --color-primary-hover: var(--color-primary-hover);
+    --color-primary-light: var(--color-primary-light);
+    --color-bg: var(--color-bg);
+    --color-bg-tinted: var(--color-bg-tinted);
+    --color-surface: var(--color-surface);
+    --color-surface-hover: var(--color-surface-hover);
+    --color-text-main: var(--color-text-main);
+    --color-text-muted: var(--color-text-muted);
+    --color-border: var(--color-border);
+    --color-border-hover: var(--color-border-hover);
+}
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* =========================================
+   Phase 1: Semantic Design Tokens
+========================================= */
+
+/* Default Theme (Cyan/Slate) - Light Mode */
+:root, [data-theme="cyan"] {
+    --color-bg: #ffffff;
+    --color-bg-tinted: #f8fafc;
+    --color-surface: #ffffff;
+    --color-surface-hover: #f1f5f9;
+    --color-primary: #0891b2;
+    --color-primary-hover: #0e7490;
+    --color-primary-light: #ecfeff;
+    --color-text-main: #0f172a;
+    --color-text-muted: #64748b;
+    --color-border: #e2e8f0;
+    --color-border-hover: #cbd5e1;
+}
+
+/* Default Theme (Cyan/Slate) - Dark Mode */
+.dark, [data-theme="cyan"].dark {
+    --color-bg: #020617;
+    --color-bg-tinted: rgb(15 23 42 / 0.48);
+    --color-surface: #0f172a;
+    --color-surface-hover: #1e293b;
+    --color-primary: #22d3ee;
+    --color-primary-hover: #67e8f9;
+    --color-primary-light: rgb(8 145 178 / 0.12);
+    --color-text-main: #ffffff;
+    --color-text-muted: #cbd5e1;
+    --color-border: #1e293b;
+    --color-border-hover: #334155;
+}
+
+/* Earth Tone Theme (Forest & Gold) - Light Mode */
+[data-theme="earth"] {
+    --color-bg: #fdfbf7;
+    --color-bg-tinted: #f4f0e6;
+    --color-surface: #ffffff;
+    --color-surface-hover: #ede8db;
+    --color-primary: #a16207; /* Dark Gold for better contrast */
+    --color-primary-hover: #854d0e;
+    --color-primary-light: #fefce8;
+    --color-text-main: #292524;
+    --color-text-muted: #78716c;
+    --color-border: #e7e5e4;
+    --color-border-hover: #d6d3d1;
+}
+
+/* Earth Tone Theme (Forest & Gold) - Dark Mode */
+[data-theme="earth"].dark {
+    --color-bg: #1c1917;
+    --color-bg-tinted: rgb(41 37 36 / 0.48);
+    --color-surface: #292524;
+    --color-surface-hover: #44403c;
+    --color-primary: #fcd34d;
+    --color-primary-hover: #fde68a;
+    --color-primary-light: rgb(202 138 4 / 0.12);
+    --color-text-main: #fafaf9;
+    --color-text-muted: #a8a29e;
+    --color-border: #44403c;
+    --color-border-hover: #57534e;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    min-width: 320px;
+    background: var(--color-bg);
+    color: var(--color-text-main);
+    font-family: var(--font-sans);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.hero-grid {
+    background-image: linear-gradient(to right, rgb(148 163 184 / .13) 1px, transparent 1px), linear-gradient(to bottom, rgb(148 163 184 / .13) 1px, transparent 1px);
+    background-size: 48px 48px;
+    mask-image: linear-gradient(to bottom, black 20%, transparent 88%);
+}
+
+.section-shell {
+    padding: 6.5rem 0;
+    scroll-margin-top: 72px;
+}
+
+.section-tinted {
+    background: var(--color-bg-tinted);
+    transition: background-color 0.3s ease;
+}
+
+.eyebrow {
+    color: var(--color-primary);
+    font-size: .75rem;
+    font-weight: 700;
+    letter-spacing: .15em;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+}
+
+.section-title {
+    margin-top: .75rem;
+    font-size: clamp(1.9rem, 4vw, 2.5rem);
+    line-height: 1.14;
+    font-weight: 700;
+    letter-spacing: -.035em;
+    color: var(--color-text-main);
+    transition: color 0.3s ease;
+}
+
+.section-description {
+    margin-top: 1rem;
+    color: var(--color-text-muted);
+    line-height: 1.7;
+    transition: color 0.3s ease;
+}
+
+.nav-link {
+    border-radius: .5rem;
+    padding: .5rem .75rem;
+    font-size: .875rem;
+    color: var(--color-text-muted);
+    transition: all .3s ease;
+    cursor: pointer;
+}
+
+.nav-link:hover,
+.nav-link-active {
+    color: var(--color-primary-hover);
+    background: var(--color-primary-light);
+}
+
+.icon-button {
+    height: 2.35rem;
+    width: 2.35rem;
+    place-items: center;
+    border-radius: .6rem;
+    color: var(--color-text-muted);
+    transition: all .3s ease;
+    border: 1px solid var(--color-border);
+    background: var(--color-surface);
+}
+.social-link {
+    display: grid;
+    height: 2.35rem;
+    width: 2.35rem;
+    place-items: center;
+    border-radius: .6rem;
+    color: var(--color-text-muted);
+    transition: all .3s ease;
+}
+
+.social-link:hover,
+.icon-button:hover {
+    background: var(--color-primary-light);
+    color: var(--color-primary-hover);
+    border-color: var(--color-primary-light);
+    transform: translateY(-1px);
+}
+
+.button-primary,
+.button-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: .5rem;
+    border-radius: .65rem;
+    padding: .75rem 1rem;
+    font-size: .875rem;
+    font-weight: 600;
+    transition: all .3s ease;
+}
+
+.button-primary {
+    background: var(--color-primary);
+    color: var(--color-bg);
+    box-shadow: 0 8px 20px var(--color-primary-light);
+}
+
+.button-primary:hover {
+    background: var(--color-primary-hover);
+    transform: translateY(-1px);
+}
+
+.button-secondary {
+    border: 1px solid var(--color-border-hover);
+    color: var(--color-text-main);
+}
+
+.button-secondary:hover {
+    border-color: var(--color-primary);
+    color: var(--color-primary-hover);
+    background: var(--color-primary-light);
+}
+
+.feature-card {
+    border: 1px solid var(--color-border);
+    border-radius: .9rem;
+    padding: 1rem;
+    background: var(--color-surface);
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.feature-card h3,
+.skill-card h3,
+.activity-card h3 {
+    margin: .75rem 0 .35rem;
+    font-size: .9rem;
+    font-weight: 600;
+    color: var(--color-text-main);
+    transition: color 0.3s ease;
+}
+
+.feature-card p,
+.activity-card p {
+    font-size: .78rem;
+    line-height: 1.45;
+    color: var(--color-text-muted);
+    transition: color 0.3s ease;
+}
+
+.skill-card {
+    border: 1px solid var(--color-border);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    background: var(--color-surface);
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.skill-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    border: 1px solid var(--color-border);
+    border-radius: 999px;
+    padding: .32rem .65rem;
+    font-size: .8rem;
+    color: var(--color-text-muted);
+    background: var(--color-bg-tinted);
+    transition: all 0.3s ease;
+}
+
+.project-card {
+    overflow: hidden;
+    border: 1px solid var(--color-border);
+    border-radius: 1rem;
+    background: var(--color-surface);
+    transition: transform .25s, box-shadow .25s, background-color .3s, border-color .3s;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 35px var(--color-bg-tinted);
+}
+
+.project-image {
+    display: grid;
+    height: 175px;
+    place-items: center;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.project-window {
+    width: 72%;
+    border: 1px solid var(--color-border-hover);
+    border-radius: .65rem;
+    background: var(--color-bg-tinted);
+    padding: .7rem;
+    box-shadow: 0 8px 20px var(--color-border);
+}
+
+.project-window>span {
+    display: inline-block;
+    height: .36rem;
+    width: .36rem;
+    margin-right: .2rem;
+    border-radius: 50%;
+    background: var(--color-border-hover);
+}
+
+.project-lines {
+    margin-top: .9rem;
+    display: grid;
+    gap: .42rem;
+}
+
+.project-lines i {
+    display: block;
+    height: .35rem;
+    border-radius: 999px;
+    background: var(--color-border-hover);
+}
+
+.project-lines i:nth-child(2) {
+    width: 72%;
+    background: var(--color-primary);
+}
+
+.project-lines i:nth-child(3) {
+    width: 45%;
+}
+
+.project-link {
+    display: inline-flex;
+    align-items: center;
+    gap: .35rem;
+    font-size: .83rem;
+    font-weight: 600;
+    color: var(--color-primary-hover);
+}
+
+.project-link:hover {
+    color: var(--color-primary);
+}
+
+.timeline-card {
+    display: flex;
+    gap: 1.25rem;
+    max-width: 53rem;
+    border: 1px solid var(--color-border);
+    border-radius: 1rem;
+    padding: 1.75rem;
+    background: var(--color-surface);
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.timeline-icon {
+    display: grid;
+    flex: none;
+    height: 3rem;
+    width: 3rem;
+    place-items: center;
+    border-radius: .8rem;
+    color: var(--color-primary-hover);
+    background: var(--color-primary-light);
+    transition: all 0.3s ease;
+}
+
+.activity-card {
+    border: 1px solid var(--color-border);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    background: var(--color-surface);
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.activity-card span {
+    display: block;
+    margin-top: 1.25rem;
+    color: var(--color-text-muted);
+    font-size: .7rem;
+    font-weight: 600;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+}
+
+.contact-item {
+    display: flex;
+    gap: .85rem;
+    align-items: center;
+    border-radius: .8rem;
+    padding: .7rem;
+    transition: all .3s ease;
+}
+
+.contact-item:hover {
+    background: var(--color-primary-light);
+}
+
+.contact-item span {
+    display: grid;
+    height: 2.35rem;
+    width: 2.35rem;
+    place-items: center;
+    border-radius: .65rem;
+    color: var(--color-primary-hover);
+    background: var(--color-primary-light);
+    transition: all .3s ease;
+}
+
+.contact-item p {
+    margin: 0;
+    font-size: .72rem;
+    color: var(--color-text-muted);
+    transition: color 0.3s ease;
+}
+
+.contact-item strong {
+    display: block;
+    margin-top: .12rem;
+    font-size: .83rem;
+    font-weight: 500;
+    color: var(--color-text-main);
+    transition: color 0.3s ease;
+}
+
+.contact-form {
+    border: 1px solid var(--color-border);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    background: var(--color-surface);
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.contact-form label {
+    display: block;
+    margin-bottom: .45rem;
+    font-size: .82rem;
+    font-weight: 600;
+    color: var(--color-text-main);
+    transition: color 0.3s ease;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    border: 1px solid var(--color-border-hover);
+    border-radius: .55rem;
+    padding: .75rem;
+    font: inherit;
+    font-size: .9rem;
+    outline: none;
+    background: transparent;
+    color: inherit;
+    transition: all .3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px var(--color-primary-light);
+}
+
+.animate-enter {
+    animation: enter .65s ease-out both;
+}
+
+.animate-enter-delayed {
+    animation: enter .7s .12s ease-out both;
+}
+.image-mask-fade {
+    mask-image: radial-gradient(ellipse at center, black 75%, transparent 95%);
+}
+
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+.no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+@keyframes enter {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 640px) {
+    .section-shell {
+        padding: 4.5rem 0;
+    }
+
+    .timeline-card {
+        padding: 1.25rem;
+    }
+
+    .project-card:hover {
+        transform: none;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: .01ms !important;
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+    }
+}

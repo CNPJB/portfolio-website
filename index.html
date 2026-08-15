@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0f172a" />
+  <link rel="icon" type="image/png" href="./src/assets/user.png" />
+  <meta name="description"
+    content="Portfolio of Chitnupong Narkwong, a fourth-year Computer Science student and full-stack developer." />
+  <meta property="og:title" content="Chitnupong Narkwong | Computer Science Student" />
+  <meta property="og:description"
+    content="A fourth-year Computer Science student portfolio for cooperative education opportunities." />
+  <meta property="og:type" content="website" />
+  <title>Chitnupong Narkwong | Computer Science Student</title>
+  <script>
+    (function() {
+      try {
+        var theme = localStorage.getItem('app-theme') || 'earth';
+        document.documentElement.setAttribute('data-theme', theme);
+
+        var mode = localStorage.getItem('app-mode');
+        if (mode === 'dark') {
+          document.documentElement.classList.add('dark');
+        } else {
+          document.documentElement.classList.remove('dark');
+        }
+      } catch (e) {}
+    })();
+  </script>
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/main.jsx"></script>
+</body>
+
+</html>
