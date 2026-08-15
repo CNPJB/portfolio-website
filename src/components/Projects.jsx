@@ -1,4 +1,4 @@
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { FaGithub } from "react-icons/fa";
 import SectionHeading from './SectionHeading'
@@ -7,6 +7,14 @@ import { useLanguage } from '../context/LanguageContext'
 
 function ProjectImageSlider({ project, t }) {
   const scrollRef = useRef(null);
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  const handleScroll = (e) => {
+    const scrollLeft = e.target.scrollLeft;
+    const width = e.target.clientWidth;
+    const index = Math.round(scrollLeft / width);
+    setActiveIndex(index);
+  };
 
   const scroll = (direction) => {
     if (scrollRef.current) {
@@ -24,6 +32,7 @@ function ProjectImageSlider({ project, t }) {
     <div className="relative w-full h-full group">
       <div 
         ref={scrollRef}
+        onScroll={handleScroll}
         className="flex h-full w-full overflow-x-auto snap-x snap-mandatory no-scrollbar"
       >
         {project.images.map((img, idx) => (
@@ -40,20 +49,26 @@ function ProjectImageSlider({ project, t }) {
         <>
           <button 
             onClick={() => scroll('left')}
-            className="absolute left-2 top-1/2 -translate-y-1/2 bg-text-main/40 hover:bg-text-main/70 text-bg rounded-full p-1.5 opacity-0 group-hover:opacity-100 transition-opacity"
+            className="absolute left-2 top-1/2 -translate-y-1/2 bg-text-main/40 hover:bg-text-main/70 text-bg rounded-full p-1.5 opacity-0 group-hover:opacity-100 transition-opacity hidden sm:block"
             aria-label="Previous image"
           >
             <ChevronLeft size={16} />
           </button>
           <button 
             onClick={() => scroll('right')}
-            className="absolute right-2 top-1/2 -translate-y-1/2 bg-text-main/40 hover:bg-text-main/70 text-bg rounded-full p-1.5 opacity-0 group-hover:opacity-100 transition-opacity"
+            className="absolute right-2 top-1/2 -translate-y-1/2 bg-text-main/40 hover:bg-text-main/70 text-bg rounded-full p-1.5 opacity-0 group-hover:opacity-100 transition-opacity hidden sm:block"
             aria-label="Next image"
           >
             <ChevronRight size={16} />
           </button>
-          <div className="absolute bottom-2 right-2 bg-text-main/50 text-bg text-[10px] px-2 py-1 rounded-full pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity">
-            {t('projects.scroll_more')}
+          
+          <div className="absolute bottom-2 left-0 right-0 flex justify-center gap-1.5 pointer-events-none z-10">
+            {project.images.map((_, idx) => (
+              <div 
+                key={idx} 
+                className={`h-1.5 rounded-full transition-all duration-300 ${activeIndex === idx ? 'w-4 bg-primary' : 'w-1.5 bg-surface/60 backdrop-blur-sm'}`}
+              />
+            ))}
           </div>
         </>
       )}

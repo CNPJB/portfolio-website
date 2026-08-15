@@ -71,7 +71,7 @@ const TypewriterCode = ({ speed = 25, maxLoops = 2, delayBetweenLoops = 1000 * 1
 
   return (
     <>
-      <pre className="overflow-x-auto pt-6 font-mono text-sm leading-7">
+      <pre className="overflow-x-auto pt-4 sm:pt-6 font-mono text-xs sm:text-sm leading-6 sm:leading-7 min-h-[250px] sm:min-h-[280px]">
         <code dangerouslySetInnerHTML={{ __html: highlighted + (isPlaying ? '<span class="animate-pulse">|</span>' : '') }} />
       </pre>
       <div className="mt-3 flex items-center justify-between text-xs text-text-muted min-h-[24px]">
@@ -112,12 +112,13 @@ export default function Hero() {
             <a className="button-secondary" href="#contact">
               {t('hero.contactMe')}
             </a>
-            <div className="flex items-center overflow-hidden rounded-xl border border-border-hover transition-colors focus-within:border-primary hover:border-primary bg-surface shadow-sm">
-              <div className="px-4 py-[0.75rem] text-sm font-semibold text-text-main flex items-center gap-2 border-r border-border-hover">
-                {t('hero.resume')} <ArrowDownToLine size={16} className="text-text-muted"/>
-              </div>
-              <a href="/Chitnupong_Narkwong_Resume_EN.pdf" target='_blank' download="Chitnupong_Narkwong_Resume_EN.pdf" className="px-2 py-[0.75rem] text-sm font-semibold text-text-muted hover:text-primary hover:bg-primary-light transition-colors" title="English Resume">EN</a>
-              <a href="/Chitnupong_Narkwong_Resume_TH.pdf" target='_blank' download="Chitnupong_Narkwong_Resume_TH.pdf" className="px-2 py-[0.75rem] text-sm font-semibold text-text-muted hover:text-primary hover:bg-primary-light transition-colors" title="Thai Resume">TH</a>
+            <div className="flex rounded-xl shadow-sm border border-border bg-surface">
+              <a href="/Chitnupong_Narkwong_Resume_EN.pdf" target='_blank' download="Chitnupong_Narkwong_Resume_EN.pdf" className="flex flex-1 items-center justify-center gap-2 px-4 py-[0.65rem] text-sm font-semibold text-text-main hover:bg-primary-light hover:text-primary transition-all rounded-l-xl border-r border-border" title="Download English Resume">
+                EN {t('hero.resume')} <ArrowDownToLine size={16} />
+              </a>
+              <a href="/Chitnupong_Narkwong_Resume_TH.pdf" target='_blank' download="Chitnupong_Narkwong_Resume_TH.pdf" className="flex flex-1 items-center justify-center gap-2 px-4 py-[0.65rem] text-sm font-semibold text-text-main hover:bg-primary-light hover:text-primary transition-all rounded-r-xl" title="Download Thai Resume">
+                TH {t('hero.resume')} <ArrowDownToLine size={16} />
+              </a>
             </div>
           </div>
           <div className="mt-9 flex items-center gap-4">
@@ -130,7 +131,7 @@ export default function Hero() {
         </div>
         <div className="relative mx-auto w-full max-w-sm animate-enter-delayed">
           <div className="absolute -inset-4 rounded-[2rem] bg-primary/10 blur-2xl" />
-          <div className="relative rounded-3xl border border-border bg-surface p-6 shadow-xl shadow-border">
+          <div className="relative rounded-3xl border border-border bg-surface p-4 sm:p-6 shadow-xl shadow-border">
             <div className="flex items-center gap-2 border-b border-border pb-4">
               <i className="h-2.5 w-2.5 rounded-full bg-rose-400" />
               <i className="h-2.5 w-2.5 rounded-full bg-amber-400" />
