@@ -74,7 +74,8 @@ export const translations = {
     },
     footer: {
       subtitle: 'Computer Science student & aspiring full-stack developer.',
-      copyright: 'All rights reserved.'
+      copyright: 'All rights reserved.',
+      fullname: 'Chitnupong Narkwong (Job)'
     },
     stats: {
       views: 'Total Page Views',
@@ -156,7 +157,8 @@ export const translations = {
     },
     footer: {
       subtitle: 'นักศึกษาวิทยาการคอมพิวเตอร์และนักพัฒนา Full-stack',
-      copyright: 'สงวนลิขสิทธิ์.'
+      copyright: 'สงวนลิขสิทธิ์.',
+      fullname: 'ชิตณุพงศ์ นาควงศ์ (จ๊อบ)'
     },
     stats: {
       views: 'จำนวนการเข้าชมทั้งหมด',

@@ -9,7 +9,7 @@ export default function Footer() {
   return <footer className="border-t border-border bg-surface py-8">
     <div className="mx-auto flex max-w-6xl flex-col gap-6 px-5 sm:flex-row sm:items-center sm:justify-between lg:px-8">
       <div>
-        <p className="font-semibold text-text-main">Chitnupong Narkwong</p>
+        <p className="font-semibold text-text-main">{t('footer.fullname')}</p>
         <p className="mt-1 text-sm text-text-muted">{t('footer.subtitle')}</p>
       </div>
       <div className="flex items-center gap-3">

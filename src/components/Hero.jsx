@@ -113,10 +113,10 @@ export default function Hero() {
               {t('hero.contactMe')}
             </a>
             <div className="flex rounded-xl shadow-sm border border-border bg-surface">
-              <a href="/Chitnupong_Narkwong_Resume_EN.pdf" target='_blank' download="Chitnupong_Narkwong_Resume_EN.pdf" className="flex flex-1 items-center justify-center gap-2 px-4 py-[0.65rem] text-sm font-semibold text-text-main hover:bg-primary-light hover:text-primary transition-all rounded-l-xl border-r border-border" title="Download English Resume">
+              <a href="/Chitnupong_Narkwong_Resume_EN.pdf" target='_blank' download="Chitnupong_Narkwong_Resume_EN.pdf" className="flex flex-1 items-center justify-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-[0.65rem] text-sm font-semibold text-text-main hover:bg-primary-light hover:text-primary transition-all rounded-l-xl border-r border-border whitespace-nowrap" title="Download English Resume">
                 EN {t('hero.resume')} <ArrowDownToLine size={16} />
               </a>
-              <a href="/Chitnupong_Narkwong_Resume_TH.pdf" target='_blank' download="Chitnupong_Narkwong_Resume_TH.pdf" className="flex flex-1 items-center justify-center gap-2 px-4 py-[0.65rem] text-sm font-semibold text-text-main hover:bg-primary-light hover:text-primary transition-all rounded-r-xl" title="Download Thai Resume">
+              <a href="/Chitnupong_Narkwong_Resume_TH.pdf" target='_blank' download="Chitnupong_Narkwong_Resume_TH.pdf" className="flex flex-1 items-center justify-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-[0.65rem] text-sm font-semibold text-text-main hover:bg-primary-light hover:text-primary transition-all rounded-r-xl whitespace-nowrap" title="Download Thai Resume">
                 TH {t('hero.resume')} <ArrowDownToLine size={16} />
               </a>
             </div>
