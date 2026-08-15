@@ -18,7 +18,7 @@ export default function About() {
           <SectionHeading eyebrow={t('about.eyebrow')} title={t('about.title')} />
           <div className="relative w-full aspect-[4/3] overflow-hidden image-mask-fade">
             <img
-              src="./src/assets/profile_pic.png"
+              src="/profile_pic.png"
               alt="Profile"
               className="h-full w-full object-cover"
             />
