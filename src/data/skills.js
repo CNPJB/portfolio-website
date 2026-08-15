@@ -41,7 +41,7 @@ export const skillGroups = [
       { name: 'Docker', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg' },
       { name: 'VS Code', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original.svg' },
       { name: 'Google Cloud Platform', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/googlecloud/googlecloud-original.svg' },
-{ name: 'Cloudinary' },
+      { name: 'Cloudinary' },
       { name: 'System Analysis' },
       { name: 'UML' },
       { name: 'ER Diagram' },

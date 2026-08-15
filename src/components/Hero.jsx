@@ -116,8 +116,8 @@ export default function Hero() {
               <div className="px-4 py-[0.75rem] text-sm font-semibold text-text-main flex items-center gap-2 border-r border-border-hover">
                 {t('hero.resume')} <ArrowDownToLine size={16} className="text-text-muted"/>
               </div>
-              <a href="../src/assets/Chitnupong_Narkwong_Resume_EN.pdf" target='_blank' download="Chitnupong_Narkwong_Resume_EN.pdf" className="px-2 py-[0.75rem] text-sm font-semibold text-text-muted hover:text-primary hover:bg-primary-light transition-colors" title="English Resume">EN</a>
-              <a href="../src/assets/Chitnupong_Narkwong_Resume_TH.pdf" target='_blank' download="Chitnupong_Narkwong_Resume_TH.pdf" className="px-2 py-[0.75rem] text-sm font-semibold text-text-muted hover:text-primary hover:bg-primary-light transition-colors" title="Thai Resume">TH</a>
+              <a href="./src/assets/Chitnupong_Narkwong_Resume_EN.pdf" target='_blank' download="Chitnupong_Narkwong_Resume_EN.pdf" className="px-2 py-[0.75rem] text-sm font-semibold text-text-muted hover:text-primary hover:bg-primary-light transition-colors" title="English Resume">EN</a>
+              <a href="./src/assets/Chitnupong_Narkwong_Resume_TH.pdf" target='_blank' download="Chitnupong_Narkwong_Resume_TH.pdf" className="px-2 py-[0.75rem] text-sm font-semibold text-text-muted hover:text-primary hover:bg-primary-light transition-colors" title="Thai Resume">TH</a>
             </div>
           </div>
           <div className="mt-9 flex items-center gap-4">
